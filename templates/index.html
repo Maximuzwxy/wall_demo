@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}留言墙 · 全部留言{% endblock %}
+
+{% block content %}
+<div class="head">
+  <h1>全部留言</h1>
+  <a class="btn" href="{{ url_for('new_message') }}">写一条</a>
+</div>
+
+{% if messages %}
+  <ul class="list">
+    {% for m in messages %}
+      <li class="item">
+        <div class="meta">
+          <span class="name">{{ m.name }}</span>
+          <span class="time">{{ m.time }}</span>
+        </div>
+        <p class="text">{{ m.text }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p class="empty">还没有留言，去写第一条吧。</p>
+{% endif %}
+
+<p class="hint">共 {{ messages|length }} 条 · 数据存在 database.json</p>
+{% endblock %}

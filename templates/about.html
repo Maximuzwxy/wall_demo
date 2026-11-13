@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}关于{% endblock %}
+
+{% block content %}
+<h1>关于这个项目</h1>
+
+<p>这是一个用来练习<strong>部署</strong>的最小 Flask 应用，功能只有：看留言、写留言、读一个 JSON 接口。</p>
+
+<ul class="plain">
+  <li>页面渲染：<code>/</code>、<code>/new</code>、<code>/about</code></li>
+  <li>数据读写：<code>database.json</code>（写入成功才说明文件权限配对）</li>
+  <li>接口验收：<code>/api/messages</code> 返回 JSON，可以直接 curl</li>
+  <li>静态资源：<code>/static/style.css</code>，用来验证 Nginx 转发</li>
+</ul>
+
+<p class="hint">部署后如果页面能开、但提交留言报 500，问题几乎一定出在 database.json 的可写权限上。</p>
+{% endblock %}

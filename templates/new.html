@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}写留言{% endblock %}
+
+{% block content %}
+<h1>写一条留言</h1>
+
+<form class="form" method="post" action="{{ url_for('new_message') }}">
+  <label>
+    <span>称呼</span>
+    <input type="text" name="name" maxlength="20" placeholder="不填就是匿名">
+  </label>
+  <label>
+    <span>内容</span>
+    <textarea name="text" rows="5" maxlength="200" required placeholder="想说点什么"></textarea>
+  </label>
+  <div class="actions">
+    <button class="btn" type="submit">提交</button>
+    <a class="link" href="{{ url_for('index') }}">返回首页</a>
+  </div>
+</form>
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}留言墙{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="{{ url_for('index') }}">留言墙</a>
+    <nav class="links">
+      <a href="{{ url_for('index') }}">首页</a>
+      <a href="{{ url_for('new_message') }}">写留言</a>
+      <a href="{{ url_for('about') }}">关于</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="foot">
+    部署练手项目 · Flask + JSON 文件
+  </footer>
+</body>
+</html>
